@@ -1,0 +1,19 @@
+<script src="ImageCompress.js"></script>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="inputfile" class="ImageCompress"/>
+</form>
+<img src="" id="previewImage" />
+
+<script>
+    var compressor = new ImageCompress({
+        'fileToCompress' : '.ImageCompress',
+        'imageForPreview' : '#previewImage'
+    });
+    document.querySelector('input[name="inputfile"]').onchange = function () {
+        compressor.previewImage();
+        var outputFile = compressor.compress(30, 'jpg');
+        console.log(outputFile);
+    };
+
+</script>
